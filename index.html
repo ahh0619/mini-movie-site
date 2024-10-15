@@ -7,6 +7,41 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <header class="header_section">
+      <div class="header_box">
+        <h1 class="header_title">영화 검색</h1>
+        <input
+          class="header_input"
+          type="text"
+          placeholder="영화를 검색하세요..."
+        />
+        <button class="bookmark_button">북마크 보기</button>
+        <button class="reverse_button">돌아가기</button>
+      </div>
+    </header>
+    <main class="main_section"></main>
+    <div class="modal">
+      <div class="modal_popup">
+        <div class="modal_close_btn_box">
+          <button type="button" class="close_btn">X</button>
+        </div>
+        <div class="modal_img_box">
+          <img class="modal_img_item" src="" alt="" />
+        </div>
+        <div class="modal_info_box">
+          <h3 class="modal_info_title"></h3>
+          <p class="modal_info_comment"></p>
+          <p class="modal_info_p">
+            개봉일 : <span class="modal_info_date"></span>
+          </p>
+          <p class="modal_info_p">
+            평점 : <span class="modal_info_rating"></span>
+          </p>
+        </div>
+        <button class="bookmark_addbtn">북마크 추가</button>
+        <button class="bookmark_removebtn">북마크 제거</button>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
