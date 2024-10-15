@@ -2,7 +2,7 @@ const MY_API_KEY = "cc24de6758ec32392f5e908a59646216";
 const url = `https://api.themoviedb.org/3/movie/popular?api_key=${MY_API_KEY}&language=ko-KR`;
 
 const rootMain = document.querySelector(".main_section");
-const searchinput = document.querySelector(".header_input");
+const searchInput = document.querySelector(".header_input");
 
 const bookmarkViewBtn = document.querySelector(".bookmark_button");
 const bookmarkReverseBtn = document.querySelector(".reverse_button");
@@ -146,8 +146,8 @@ modalCloseBtn.addEventListener("click", () => {
   modalWindow.style.display = "none";
 });
 
-searchinput.addEventListener("input", () => {
-  const searchValue = searchinput.value.toLowerCase();
+searchInput.addEventListener("input", () => {
+  const searchValue = searchInput.value.toLowerCase();
   const filteredMovies = allMovies.filter((movie) =>
     movie.title.toLowerCase().includes(searchValue)
   );
