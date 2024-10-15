@@ -121,9 +121,9 @@ bookmarkViewBtn.addEventListener("click", () => {
 });
 
 bookmarkReverseBtn.addEventListener("click", () => {
+  renderMovies(allMovies);
   bookmarkViewBtn.style.display = "block";
   bookmarkReverseBtn.style.display = "none";
-  renderMovies(allMovies);
 });
 
 bookmarkAddBtn.addEventListener("click", () => {
