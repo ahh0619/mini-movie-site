@@ -133,7 +133,6 @@ bookmarkAddBtn.addEventListener("click", () => {
     addBookmark(movie);
   }
   alert("북마크에 추가되었습니다.");
-  modalWindow.style.display = "none";
 });
 
 bookmarkRemoveBtn.addEventListener("click", () => {
