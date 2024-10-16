@@ -61,15 +61,16 @@ function modalRenderMovies(movie) {
   updateBookmarkButtons(movie.id);
 }
 
-fetch(url)
-  .then((response) => response.json())
-  .then((data) => {
+async function fetchMovies() {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
     allMovies = data.results;
     renderMovies(allMovies);
-  })
-  .catch((error) => {
+  } catch (error) {
     console.error("데이터를 가져오는 중 오류 발생:", error);
-  });
+  }
+}
 
 function renderMovies(movies) {
   rootMain.innerHTML = "";
@@ -151,10 +152,11 @@ searchInput.addEventListener("input", () => {
   const filteredMovies = allMovies.filter((movie) =>
     movie.title.toLowerCase().includes(searchValue)
   );
-  console.log(filteredMovies);
   renderMovies(filteredMovies);
 });
 
 window.addEventListener("load", () => {
   bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
 });
+
+fetchMovies();
