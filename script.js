@@ -18,8 +18,18 @@ const modalMovieDate = document.querySelector(".modal_info_date");
 const modalMovieRating = document.querySelector(".modal_info_rating");
 const modalMovieImgItem = document.querySelector(".modal_img_item");
 
+const mainBody = document.querySelector("body");
+
 let allMovies = [];
 let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+
+function scrollDisable() {
+  mainBody.classList.add("scroll_disable");
+}
+
+function scrollAble() {
+  mainBody.classList.remove("scroll_disable");
+}
 
 function saveBookmarks() {
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
@@ -167,13 +177,3 @@ window.addEventListener("load", () => {
 });
 
 fetchMovies();
-
-const mainBody = document.querySelector("body");
-
-function scrollDisable() {
-  mainBody.classList.add("scroll_disable");
-}
-
-function scrollAble() {
-  mainBody.classList.remove("scroll_disable");
-}
