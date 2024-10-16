@@ -62,8 +62,14 @@ function modalRenderMovies(movie) {
 }
 
 async function fetchMovies() {
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+    },
+  };
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, options);
     const data = await response.json();
     allMovies = data.results;
     renderMovies(allMovies);
@@ -102,9 +108,9 @@ function renderMovies(movies) {
 }
 
 rootMain.addEventListener("click", (e) => {
-  const clickedCard = e.target.closest(".card");
+  const clickedCard = e.target.closest(".card"); // 클릭된 카드 요소 찾기
   if (clickedCard) {
-    const clickedMovieId = parseInt(clickedCard.id);
+    const clickedMovieId = parseInt(clickedCard.id); // 클릭된 영화의 ID 가져오기
     const selectedMovie = allMovies.find(
       (movie) => movie.id === clickedMovieId
     );
@@ -128,7 +134,7 @@ bookmarkReverseBtn.addEventListener("click", () => {
 });
 
 bookmarkAddBtn.addEventListener("click", () => {
-  const movieId = parseInt(modalMovieTitle.getAttribute("data-id"));
+  const movieId = parseInt(modalMovieTitle.getAttribute("data-id")); // 모달 창에서 영화 ID 가져오기
   const movie = allMovies.find((movie) => movie.id === movieId);
   if (movie) {
     addBookmark(movie);
