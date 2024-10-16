@@ -57,7 +57,7 @@ function modalRenderMovies(movie) {
   modalMovieDate.innerHTML = movie.release_date;
   modalMovieRating.innerHTML = movie.vote_average;
   modalMovieImgItem.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
+  scrollDisable();
   updateBookmarkButtons(movie.id);
 }
 
@@ -151,6 +151,7 @@ bookmarkRemoveBtn.addEventListener("click", () => {
 
 modalCloseBtn.addEventListener("click", () => {
   modalWindow.style.display = "none";
+  scrollAble();
 });
 
 searchInput.addEventListener("input", () => {
@@ -166,3 +167,13 @@ window.addEventListener("load", () => {
 });
 
 fetchMovies();
+
+const mainBody = document.querySelector("body");
+
+function scrollDisable() {
+  mainBody.classList.add("scroll_disable");
+}
+
+function scrollAble() {
+  mainBody.classList.remove("scroll_disable");
+}
