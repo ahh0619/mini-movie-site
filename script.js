@@ -133,13 +133,14 @@ bookmarkAddBtn.addEventListener("click", () => {
     addBookmark(movie);
   }
   alert("북마크에 추가되었습니다.");
+  modalWindow.style.display = "none";
 });
 
 bookmarkRemoveBtn.addEventListener("click", () => {
   const movieId = parseInt(modalMovieTitle.getAttribute("data-id"));
   removeBookmark(movieId);
-  modalWindow.style.display = "none";
   alert("북마크에서 제거되었습니다.");
+  modalWindow.style.display = "none";
 });
 
 modalCloseBtn.addEventListener("click", () => {
@@ -151,6 +152,7 @@ searchInput.addEventListener("input", () => {
   const filteredMovies = allMovies.filter((movie) =>
     movie.title.toLowerCase().includes(searchValue)
   );
+  console.log(filteredMovies);
   renderMovies(filteredMovies);
 });
 
