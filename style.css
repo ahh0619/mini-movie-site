@@ -129,7 +129,7 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 700px;
+  width: 350px;
   transform: translate(-50%, -50%);
   padding: 20px;
   border-radius: 5px;
@@ -162,7 +162,7 @@ body {
 
 .modal_img_box {
   width: 100%;
-  height: 800px;
+  height: 350px;
   border: none;
   border-radius: 5px;
 }
@@ -180,6 +180,10 @@ body {
 
 .modal_info_p {
   font-weight: bold;
+}
+
+.modal_info_comment {
+  font-size: 12px;
 }
 
 .bookmark_btn {
