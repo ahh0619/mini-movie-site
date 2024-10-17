@@ -150,6 +150,7 @@ bookmarkAddBtn.addEventListener("click", () => {
     addBookmark(movie);
   }
   alert("북마크에 추가되었습니다.");
+  modalWindow.style.display = "none";
 });
 
 bookmarkRemoveBtn.addEventListener("click", () => {
@@ -159,17 +160,23 @@ bookmarkRemoveBtn.addEventListener("click", () => {
   modalWindow.style.display = "none";
 });
 
-modalCloseBtn.addEventListener("click", () => {
-  modalWindow.style.display = "none";
-  scrollAble();
-});
-
 searchInput.addEventListener("input", () => {
   const searchValue = searchInput.value.toLowerCase();
   const filteredMovies = allMovies.filter((movie) =>
     movie.title.toLowerCase().includes(searchValue)
   );
   renderMovies(filteredMovies);
+});
+
+modalCloseBtn.addEventListener("click", () => {
+  modalWindow.style.display = "none";
+  scrollAble();
+});
+
+window.addEventListener("click", (event) => {
+  if (event.target === modalWindow) {
+    modalWindow.style.display = "none";
+  }
 });
 
 window.addEventListener("load", () => {
