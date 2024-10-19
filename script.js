@@ -11,7 +11,6 @@ const bookmarkRemoveBtn = document.querySelector(".bookmark_removebtn");
 
 const modalWindow = document.querySelector(".modal");
 const modalCloseBtn = document.querySelector(".close_btn");
-
 const modalMovieTitle = document.querySelector(".modal_info_title");
 const modalMovieComment = document.querySelector(".modal_info_comment");
 const modalMovieDate = document.querySelector(".modal_info_date");
@@ -22,6 +21,10 @@ const mainBody = document.querySelector("body");
 
 let allMovies = [];
 let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+
+function modalClose() {
+  modalWindow.style.display = "none";
+}
 
 function scrollDisable() {
   mainBody.classList.add("scroll_disable");
@@ -149,15 +152,15 @@ bookmarkAddBtn.addEventListener("click", () => {
   if (movie) {
     addBookmark(movie);
   }
+  modalClose();
   alert("북마크에 추가되었습니다.");
-  modalWindow.style.display = "none";
 });
 
 bookmarkRemoveBtn.addEventListener("click", () => {
   const movieId = parseInt(modalMovieTitle.getAttribute("data-id"));
   removeBookmark(movieId);
+  modalClose();
   alert("북마크에서 제거되었습니다.");
-  modalWindow.style.display = "none";
 });
 
 searchInput.addEventListener("input", () => {
@@ -169,13 +172,13 @@ searchInput.addEventListener("input", () => {
 });
 
 modalCloseBtn.addEventListener("click", () => {
-  modalWindow.style.display = "none";
+  modalClose();
   scrollAble();
 });
 
 window.addEventListener("click", (event) => {
   if (event.target === modalWindow) {
-    modalWindow.style.display = "none";
+    modalClose();
   }
 });
 
