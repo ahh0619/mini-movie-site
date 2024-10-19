@@ -1,3 +1,8 @@
+const bookmarkViewBtn = document.querySelector(".bookmark_button");
+const bookmarkReverseBtn = document.querySelector(".reverse_button");
+const bookmarkAddBtn = document.querySelector(".bookmark_addbtn");
+const bookmarkRemoveBtn = document.querySelector(".bookmark_removebtn");
+
 let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
 
 function saveBookmarks() {

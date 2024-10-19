@@ -2,10 +2,6 @@ const MY_API_KEY = "cc24de6758ec32392f5e908a59646216";
 const url = `https://api.themoviedb.org/3/movie/popular?api_key=${MY_API_KEY}&language=ko-KR`;
 
 const rootMain = document.querySelector(".main_section");
-const bookmarkViewBtn = document.querySelector(".bookmark_button");
-const bookmarkReverseBtn = document.querySelector(".reverse_button");
-const bookmarkAddBtn = document.querySelector(".bookmark_addbtn");
-const bookmarkRemoveBtn = document.querySelector(".bookmark_removebtn");
 
 let allMovies = [];
 
