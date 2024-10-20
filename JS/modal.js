@@ -20,10 +20,10 @@ function modalRenderMovies(movie) {
 
 function modalClose() {
   modalWindow.style.display = "none";
+  mainBody.style.overflow = "";
 }
 
 modalCloseBtn.addEventListener("click", () => {
-  mainBody.style.overflow = "";
   modalClose();
 });
 
