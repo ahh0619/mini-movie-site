@@ -4,6 +4,7 @@ const bookmarkAddBtn = document.querySelector(".bookmark_addbtn");
 const bookmarkRemoveBtn = document.querySelector(".bookmark_removebtn");
 
 let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+let bookmarkState = false;
 
 function saveBookmarks() {
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
@@ -21,6 +22,10 @@ function removeBookmark(movieId) {
   bookmarks = bookmarks.filter((bookmark) => bookmark.id !== movieId);
   saveBookmarks();
   updateBookmarkButtons(movieId);
+
+  if (bookmarkState) {
+    renderMovies(bookmarks);
+  }
 }
 
 function updateBookmarkButtons(movieId) {
@@ -35,19 +40,21 @@ function updateBookmarkButtons(movieId) {
 }
 
 bookmarkViewBtn.addEventListener("click", () => {
+  bookmarkState = true;
   renderMovies(bookmarks);
   bookmarkViewBtn.style.display = "none";
   bookmarkReverseBtn.style.display = "block";
 });
 
 bookmarkReverseBtn.addEventListener("click", () => {
+  bookmarkState = false;
   renderMovies(allMovies);
   bookmarkViewBtn.style.display = "block";
   bookmarkReverseBtn.style.display = "none";
 });
 
 bookmarkAddBtn.addEventListener("click", () => {
-  const movieId = parseInt(modalMovieTitle.getAttribute("data-id")); // 모달 창에서 영화 ID 가져오기
+  const movieId = parseInt(modalMovieTitle.getAttribute("data-id"));
   const movie = allMovies.find((movie) => movie.id === movieId);
   if (movie) {
     addBookmark(movie);
