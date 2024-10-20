@@ -22,9 +22,14 @@ function removeBookmark(movieId) {
   bookmarks = bookmarks.filter((bookmark) => bookmark.id !== movieId);
   saveBookmarks();
   updateBookmarkButtons(movieId);
-
   if (bookmarkPageState) {
     renderMovies(bookmarks);
+  }
+  if (bookmarkPageState && bookmarks.length === 0) {
+    bookmarkPageState = false;
+    bookmarkViewBtn.style.display = "block";
+    bookmarkReverseBtn.style.display = "none";
+    renderMovies(allMovies);
   }
 }
 
