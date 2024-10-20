@@ -4,7 +4,7 @@ const bookmarkAddBtn = document.querySelector(".bookmark_addbtn");
 const bookmarkRemoveBtn = document.querySelector(".bookmark_removebtn");
 
 let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-let bookmarkState = false;
+let bookmarkPageState = false;
 
 function saveBookmarks() {
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
@@ -23,7 +23,7 @@ function removeBookmark(movieId) {
   saveBookmarks();
   updateBookmarkButtons(movieId);
 
-  if (bookmarkState) {
+  if (bookmarkPageState) {
     renderMovies(bookmarks);
   }
 }
@@ -40,14 +40,14 @@ function updateBookmarkButtons(movieId) {
 }
 
 bookmarkViewBtn.addEventListener("click", () => {
-  bookmarkState = true;
+  bookmarkPageState = true;
   renderMovies(bookmarks);
   bookmarkViewBtn.style.display = "none";
   bookmarkReverseBtn.style.display = "block";
 });
 
 bookmarkReverseBtn.addEventListener("click", () => {
-  bookmarkState = false;
+  bookmarkPageState = false;
   renderMovies(allMovies);
   bookmarkViewBtn.style.display = "block";
   bookmarkReverseBtn.style.display = "none";
