@@ -198,11 +198,3 @@ body {
   border-radius: 5px;
   text-align: center;
 }
-
-/* 외부 스크롤 */
-.scroll_disable {
-  height: 100%;
-  min-height: 100%;
-  overflow: hidden !important;
-  touch-action: none;
-}
