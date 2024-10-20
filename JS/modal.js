@@ -1,3 +1,4 @@
+const mainBody = document.querySelector("body");
 const modalWindow = document.querySelector(".modal");
 const modalCloseBtn = document.querySelector(".close_btn");
 const modalMovieTitle = document.querySelector(".modal_info_title");
@@ -13,7 +14,7 @@ function modalRenderMovies(movie) {
   modalMovieDate.innerHTML = movie.release_date;
   modalMovieRating.innerHTML = movie.vote_average;
   modalMovieImgItem.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-  scrollDisable();
+  mainBody.style.overflow = "hidden";
   updateBookmarkButtons(movie.id);
 }
 
@@ -22,8 +23,8 @@ function modalClose() {
 }
 
 modalCloseBtn.addEventListener("click", () => {
+  mainBody.style.overflow = "";
   modalClose();
-  scrollAble();
 });
 
 window.addEventListener("click", (event) => {
