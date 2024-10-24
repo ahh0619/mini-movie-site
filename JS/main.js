@@ -1,3 +1,5 @@
+import { modalWindow, modalRenderMovies } from "./modal.js";
+
 const MY_API_KEY = "cc24de6758ec32392f5e908a59646216";
 const url = `https://api.themoviedb.org/3/movie/popular?api_key=${MY_API_KEY}&language=ko-KR`;
 
@@ -66,3 +68,5 @@ rootMain.addEventListener("click", (e) => {
     }
   }
 });
+
+export { allMovies, renderMovies };

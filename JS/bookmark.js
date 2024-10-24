@@ -1,3 +1,6 @@
+import { allMovies, renderMovies } from "./main.js";
+import { modalMovieTitle, modalClose } from "./modal.js";
+
 const bookmarkViewBtn = document.querySelector(".bookmark_button");
 const bookmarkReverseBtn = document.querySelector(".reverse_button");
 const bookmarkAddBtn = document.querySelector(".bookmark_addbtn");
@@ -78,3 +81,5 @@ bookmarkRemoveBtn.addEventListener("click", () => {
 window.addEventListener("load", () => {
   bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
 });
+
+export { updateBookmarkButtons };

@@ -1,3 +1,5 @@
+import { updateBookmarkButtons } from "./bookmark.js";
+
 const mainBody = document.querySelector("body");
 const modalWindow = document.querySelector(".modal");
 const modalCloseBtn = document.querySelector(".close_btn");
@@ -32,3 +34,5 @@ window.addEventListener("click", (event) => {
     modalClose();
   }
 });
+
+export { modalWindow, modalMovieTitle, modalRenderMovies, modalClose };

@@ -1,3 +1,5 @@
+import { renderMovies } from "./main.js";
+
 const searchInput = document.querySelector(".header_input");
 
 searchInput.addEventListener("input", () => {
