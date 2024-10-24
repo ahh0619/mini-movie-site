@@ -1,4 +1,4 @@
-import { renderMovies } from "./main.js";
+import { allMovies, renderMovies } from "./main.js";
 
 const searchInput = document.querySelector(".header_input");
 
